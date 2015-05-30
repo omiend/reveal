@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web GLで微生物を作ってみた</title>
+    <link rel="stylesheet" href="css/reveal_lifegame3d.css">
+    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+    <!-- For syntax highlighting -->
+    <script type="text/javascript" src="js/shCore.js"></script>
+    <script type="text/javascript" src="js/shBrushJava.js"></script>
+    <script type="text/javascript" src="js/shBrushScala.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="css/shCoreEmacs.css"/>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h1><div style="color: white;">Web GLで<br/>微生物を作ってみた</div></h1>
+          <p><div style="color: white;">遠藤 一臣</div></p>
+        </section>
+
+        <section data-transition="linear" data-background-transition="slide">
+          <h2>自己紹介</h2>
+          <p>
+            <ul>
+              <li>遠藤 一臣（えんどう かずおみ）</li>
+            </ul>
+          </p>
+        </section>
+
+        <section data-transition="linear" data-background-transition="slide">
+          <h2>趣味</h2>
+          <p>
+            <ul>
+              <li>映画</li>
+              <li>音楽</li>
+              <li></li>
+              <li>映画</li>
+            </ul>
+          </p>
+        </section>
+
+
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+
+  </body>
+</html>

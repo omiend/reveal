@@ -1,0 +1,1170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>reveal.js - The HTML Presentation Framework</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Kazuomi Endo">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal_scala.css">
+    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+    <!-- For syntax highlighting -->
+	<script type="text/javascript" src="js/shCore.js"></script>
+	<script type="text/javascript" src="js/shBrushJava.js"></script>
+	<script type="text/javascript" src="js/shBrushScala.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="css/shCoreEmacs.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h1><div style="color: white;">Scala</div></h1>
+          <p><div style="color: white;">遠藤一臣</div></p>
+        </section>
+
+        <section data-transition="linear" data-background-transition="slide">
+          <h2>自己紹介</h2>
+          <p>えんどうかずおみです</p>
+        </section>
+
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > 今日はなにをしてくれるのですか？<br/><br/>
+                今日は遠藤が今ハマっているScalaを紹介したいとおもいます
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > 対象者？<br/><br/>
+                日常的（？）にJavaが扱える人を対象とします<br/>
+                が、遠藤はまだまだScala勉強中ですので、そこらへんのご理解ある方（間違っていても優しくご指摘頂ける方）に限ります<br/>
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > なぜScalaを？<br/><br/>
+                人と人のつながりを実現している個人的に大好きなTwitter　　 が採用している、Scalaを勉強してみようと思った次第です<br/>
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > え、Java8は？<br/>
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > え、Java8は？<br/>
+                </p>
+                <h2>（゜д゜）クワッ</h2>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > え、Java8は？<br/><br/>
+                キャスレーがJavaを推しているのは、Javaのお仕事がたくさんあるからですよね<br/>
+                <br/>
+                確かに
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > え、Java8は？<br/><br/>
+                でも、その状況っていつまで続くんでしょうかね？
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > あと１０年、２０年は続くんじゃない？<br/><br/>
+                かもしれません<br/>
+                <br/>
+                けれども、将来なんて誰も分からないですよね<br/>
+                もっと言えば、将来Javaしか書けないおじさん／おばさんにはなりたくないですよね？
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > でも、このままJavaが成長していけば、何も問題ないかと<br/><br/>
+                本当にそうですか？<br/>
+                先日発表されたJava8では、既に他のプログラミング言語に後れを取っている印象でした<br/>
+                マネばかりでは新しい事を生みだすのは難しいと思いませんか？
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                とはいえ、Javaも素晴らしい言語です<br/>
+                でなければ、ここまで実績のあるプログラミング言語にはならなかったでしょう
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > では、この勉強会では何をめざしているのですか？<br/><br/>
+                Scalaに限らず、Java以外のさまざまなプログラミング言語にも目を向けて、必要があれば習得し、キャスレー全体として技術力の底上げを目指す意識が持てるように、一種の“起爆剤”のような勉強会になれれば良いなと思っています
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > みなさんにおかれましては？<br/><br/>
+                へえ、あんたもJVMつかってんだ<br/>
+                くらいの話半分で楽しんでいただければと！
+                </p>
+            </section>
+            <section>
+                <h2>はじめに</h2>
+                <p>
+                > RubyかSwiftの方がいいんじゃないの？<br/><br/>
+                ぐぬぬ...
+                </p>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h2><div style="color: white;">JavaとScala</div></h2>
+          <p><div style="color: white;">第1部</div></p>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li><div style="color: white;">Scalaって？</div></li>
+            <li>REPL</li>
+            <li>変数宣言</li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li>Tuple</li>
+            <li>無名関数</li>
+            <li>クラスとオブジェクト</li>
+            <li>Option型</li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その１<br/><br/>
+                スイス連邦工科大学 (EPFL) のMartin Odersky先生というかたが作った、オブジェクト指向型プログラミング言語と関数型プログラミング言語の良い所取りをしたようなプログラミング言語<br/>
+                <br/>
+                <small>
+                ※Martin Odersky先生<br/>
+                JavaのGenerics<T>や、Javacを作った方
+                </small>
+                </p>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その２<br/><br/>
+                Javaと同じく、JVM上で動作<br/>
+                コンパイルされるとclassファイルになる<br/>
+                つまり、これまで作られてきたJavaプロダクトのすべてをScalaから使うことができる<br/>
+                もちろん、classファイルになるのでJava側からもScalaプロダクトを使うことができる<br/>
+                </p>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その３<br/><br/>
+                その他もろもろあるのですが、割愛
+                </p>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その4（個人的に思う最大の特徴）<br/>
+                コレクションのライブラリがちょーーー強力<br/>
+                <br/>
+                後ほどご紹介
+                </p>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その5（個人的に思う特徴）<br/><br/>
+                書いてて楽しい<br/>
+                </p>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その6（個人的に思う特徴）<br/><br/>
+                最新プログラミング言語SwiftがScalaに似ている<br/>
+                Scalaやってるので割とスラスラ読めた
+                </p>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その-1（Scalaのあまり良くないところ）<br/><br/>
+                Date関連のAPIがない<br/>
+                →あるかもしれないけど、みんなJavaのDateをよく使っている<br/>
+                </p>
+                <pre class="brush: java;">
+def nowDate: java.util.Date = new java.util.Date
+                </pre>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その-2（Scalaのあまり良くないところ）<br/><br/>
+                とにかく学習コストが高い<br/>
+                →遠藤は今のところ半年強くらいやってるけど<br/>
+                まだスラスラ書けず（それは僕がカスだかｒ
+                </p>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その-3（Scalaのあまり良くないところ）<br/><br/>
+                コンパイルがクソ遅い<br/><br/>
+                頻繁に取り上げられるが、一部ではそのゲロ遅さがカワイイとの声も（苦しい）<br/>
+                <br/>
+                しかしsbtというのがあって...
+                </p>
+            </section>
+            <section>
+                <h4>Scalaって？</h4>
+                <p>
+                特徴その-4（Scalaのあまり良くないところ）<br/><br/>
+                仕事が無い<br/><br/>
+                SI業やってるうちはScalaなんてやらない方が良い<br/>
+                脱SI目指すなら、ScalaでなくSwiftの方が良いんじゃないか<br/>
+                <br/>
+                とか思ってたり
+                </p>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li><div style="color: white;">REPL</div></li>
+            <li>変数宣言</li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li>Tuple</li>
+            <li>無名関数</li>
+            <li>クラスとオブジェクト</li>
+            <li>Option型</li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>REPL</h4>
+                <p>
+コマンドラインでScalaプログラムを実行できる機能<br/>
+Scalaをインストールすれば使うことができる<br/>
+ちょっとした動作確認をするときなど便利
+                </p>
+                <pre class="brush: java;">
+$ scala
+Welcome to Scala version 2.10.3 (Java HotSpot(TM) Client VM, Java 1.7.0_55).
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala> 1 + 1
+res0: Int = 2
+
+scala>_
+                </pre>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li>REPL</li>
+            <li><div style="color: white;">変数宣言</div></li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li>Tuple</li>
+            <li>無名関数</li>
+            <li>クラスとオブジェクト</li>
+            <li>Option型</li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>変数宣言</h4>
+                <p>
+                おなじみ
+                </p>
+                <pre class="brush: java;">
+String name = "シャア・アズナブル";
+final String name = "アムロ・レイ";
+                </pre>
+            </section>
+            <section>
+                <h4>変数宣言</h4>
+                <p>
+                varとvalがある<br/>
+                varはvariable（変数）という意味で再代入が可能<br/>
+                valはvalue（値）という意味で再代入が不可能
+                </p>
+                <pre class="brush: scala;">
+var name: String = "シャア・アズナブル"
+val name: String = "アムロ・レイ"
+                </pre>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li>REPL</li>
+            <li>変数宣言</li>
+            <li><div style="color: white;">制御構文／コレクションのライブラリ</div></li>
+            <li>Tuple</li>
+            <li>無名関数</li>
+            <li>クラスとオブジェクト</li>
+            <li>Option型</li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+おなじみ
+                </p>
+                <pre class="brush: java;">
+if (true/false) {} else {} 
+for (String val : list) {}
+for (int i = 0; ) {}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+Javaに良く似ている<br/>
+もちろん、while文やdo~whileもあるけど割愛
+                </p>
+                <pre class="brush: scala;">
+if (true/false) {} else {}
+for (val <- list) {}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+for文の中にif文を書く事が出来る
+                </p>
+                <pre class="brush: scala;">
+val nameList: List[String] = List("シャア・アズナブル","","アムロ・レイ")
+for (name <- nameList if !name.isEmpty) {
+  println(name)
+}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+yieldを使うことで、処理結果をコレクションとして受け取る事が出来る
+                </p>
+                <pre class="brush: scala;">
+val nameList: List[String] = List("シャア・アズナブル","","アムロ・レイ")
+val resultList: List[String] = for (name <- nameList if !name.isEmpty) yield {
+  name
+}
+println(resultList)
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+Javaでやろうとするとこんな感じ
+                </p>
+                <pre class="brush: java;">
+List<String> nameList = Arrays.asList("シャア・アズナブル","","アムロ・レイ");
+List<String> resultList = new ArrayList<String>(); 
+for (String name : nameList) {
+    if (name.isEmpty()) continue;
+    resultList.add(name);
+}
+System.out.println(resultList);
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+for文のネストについて
+例えば、リストの中にリストが入る構造のデータがあったとする
+                </p>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+Javaで初期化するとこう
+                </p>
+                <pre class="brush: java;">
+List<List<String>> firstList = Arrays.asList(
+     Arrays.asList("ガンダム","ジム","ガンタンク")
+    ,Arrays.asList("ザクII","グフ","ジオング")
+);
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+Scalaで初期化するとこう
+                </p>
+                <pre class="brush: scala;">
+val firstList: List[List[String]] = List(
+   List("ガンダム","ジム","ガンタンク")
+  ,List("ザクII","グフ","ジオング")
+)
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+ネストforループのしかた
+Javaではおなじみ
+                </p>
+                <pre class="brush: java;">
+for (List<String> secondList : firstList) {
+    for (String name : secondList) {
+        System.out.println(name);
+    }
+}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+ネストforループのしかた
+セミコロンで区切って簡潔に記述可能
+                </p>
+                <pre class="brush: scala;">
+for (secondList <- firstList ; name <- secondList) {
+  println(name)
+}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+パターンマッチについて（match~case）<br/><br/>
+Javaのswitch~caseに似ているが、Scalaのmatch~caseは、主力といっても良いほどちょー強力な機能
+                </p>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+Javaのswitch~caseで書いた例
+                </p>
+                <pre class="brush: java;">
+String name = "シャア・アズナブル";
+switch (name) {
+case "シャア・アズナブル":
+    System.out.println("ジオン公国軍"); break;
+case "アムロ・レイ":
+    System.out.println("地球連邦軍");   break;
+default:
+    System.out.println("民間人");          break;
+}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+Scalaのmatch~caseだとこう<br/><br/>
+あまり変わりないけど...
+                </p>
+                <pre class="brush: scala;">
+val name: String = "シャア・アズナブル"
+name match {
+  case "シャア・アズナブル" => println("ジオン公国軍")
+  case "アムロ・レイ"       => println("地球連邦軍")
+  case _                    => println("民間人")
+}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+Scalaのmatch~caseは型でもパターンマッチ出来たり...
+                </p>
+                <pre class="brush: scala;">
+abstract class MS(val name: String)
+class NewGundam(override val name: String) extends MS(name)
+class Sazaby(override val name: String)         extends MS(name)
+class Unicorn(override val name: String)         extends MS(name)
+
+def matcher(ms: MS) = ms match {
+  case mss: NewGundam => println(mss.name + " by ニューガンダム")
+  case mss: Sazaby        => println(mss.name + " by サザビー")
+  case _                         => println("所属不明機")
+}
+matcher(new NewGundam("アムロ・レイ"))
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+他にも柔軟なパターンマッチを実現することができたり
+                </p>
+                <pre class="brush: scala;">
+List.range(1, 10) foreach { i =>
+    (i % 3, i % 5) match {
+      case (0, 0) => println("FizzBuzz")
+      case (0, _) => println("Fizz")
+      case (_, 0) => println("Buzz")
+      case _       => println(i)
+    }
+}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+mapとforeachの紹介<br />
+Q．forループ処理ってなんのために使う？
+                </p>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+mapとforeachの紹介<br/>
+A．基本的にコレクションに対する値の操作
+                </p>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+mapとforeachの紹介<br/>
+A．基本的にコレクションに対する値の操作<br/>
+<br/>
+さて、冒頭で「Scalaのコレクションにはちょー強力なライブラリが多い」と述べたとおり<br/>
+実は、それらを利用すると、for文自体使わなくても良いケースが多かったりする
+                </p>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+foreach<br/>
+例えば先ほどの下記は
+                </p>
+                <pre class="brush: scala;">
+val nameList: List[String] = List("シャア・アズナブル","","アムロ・レイ")
+for (name: String <- nameList if !name.isEmpty) {
+  println(name)
+}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+この様に記述できる
+                </p>
+                <pre class="brush: scala;">
+val nameList: List[String] = List("シャア・アズナブル","","アムロ・レイ")
+nameList.filter(x => !x.isEmpty).foreach {
+  println(_)
+}
+                </pre>
+                <p>
+省略できる
+                </p>
+                <pre class="brush: scala;">
+nameList.filter(x => !x.isEmpty) foreach(println(_))
+                </pre>
+                <p>
+さらに省略できる（やりすぎると意味不明に...）
+                </p>
+                <pre class="brush: scala;">
+nameList.filter(x => !x.isEmpty) foreach println
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+他にもいろいろなライブラリ<br/>
+この場合は
+                </p>
+                <pre class="brush: scala;">
+val nameList: List[String] = List("シャア・アズナブル","","アムロ・レイ")
+val resultList: List[String] = for (name: String <- nameList if !name.isEmpty) yield {
+  name
+}
+                </pre>
+                <p>
+filterメソッドを使えば一発
+                </p>
+                <pre class="brush: scala;">
+val nameList: List[String] = List("シャア・アズナブル","","アムロ・レイ")
+val resultList: List[String] = nameList.filter(x => !x.isEmpty)
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+map<br/>
+mapメソッドを使うと、より柔軟かつ簡潔な記述が出来る
+                </p>
+                <pre class="brush: scala;">
+val nameList: List[String] = List("シャア・アズナブル","","アムロ・レイ")
+val resultList:List[String] = nameList.filter(x => !x.isEmpty) map { name =>
+  name.replace("シャア・アズナブル","キャスバル・レム・ダイクン")
+}
+println(resultList)
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+foreachとmapの使い分け<br/>
+どちらも要素に対して順次操作するが<br/>
+<br/>
+・foreachはループ処理内だけで処理を完結<br/>
+・mapはループ処理から戻り値を取得<br/>
+<br/>
+する使い分けとなるとのこと
+                </p>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+foreach<br/>
+要素による処理を実行
+                </p>
+                <pre class="brush: scala;">
+nameList.filter(x => !x.isEmpty) foreach { name =>
+  println(name)
+}
+                </pre>
+            </section>
+            <section>
+                <h4>制御構文／コレクションのライブラリ</h4>
+                <p>
+map<br/>
+要素に変更を加える処理を実行<br/>
+                </p>
+                <pre class="brush: scala;">
+val resultList:List[String] = nameList.filter(x => !x.isEmpty) map { name =>
+  name.replace("シャア・アズナブル","キャスバル・レム・ダイクン")
+}
+                </pre>
+                <small>ただし、Scalaでは副作用を引き起こす“要素そのものに変更を加える”事を良しとしないので、新しいコレクションを生成する</small>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li>REPL</li>
+            <li>変数宣言</li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li><div style="color: white;">Tuple</div></li>
+            <li>無名関数</li>
+            <li>クラスとオブジェクト</li>
+            <li>Option型</li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>Tuple</h4>
+                <p>
+Tuple<br/>
+Tuple（タプル）とは、複数のさまざまな型のデータを一つにまとめる事が出来る機能<br/>
+さまざまなシーンで使える<br/>
+ただし、格納出来るオブジェクトは22個まで（タプル23問題）
+                </p>
+            </section>
+            <section>
+                <h4>Tuple</h4>
+                <p>
+Tuple<br/>
+メソッドの戻り値を例に見てみる
+                </p>
+            </section>
+            <section>
+                <h4>Tuple</h4>
+                <p>
+Javaのメソッドの戻り値は一つ
+                </p>
+                <pre class="brush: java;">
+public String getFirstName() {
+	return this.firstName;
+}
+public String getLastName() {
+	return this.lastName;
+}
+public int getAge() {
+	return this.age;
+}
+public String getFullName() {
+	return this.firstName + this.lastName;
+}
+                </pre>
+            </section>
+            <section>
+                <h4>Tuple</h4>
+                <p>
+メソッドの戻り値にTupleを使えば...
+                </p>
+                <pre class="brush: scala;">
+case class Employee(val firstName: String, val lastName: String, val age: Int) {
+  def allData = (firstName, lastName, age) // Tupleを返却する
+}
+val emp: Employee = Employee("kazuomi","Endo",31)
+val allData = emp.allData
+println(allData._1) // kazuomi
+println(allData._2) // endo
+println(allData._3) // 31
+println(allData._4) // これはコンパイルエラー
+                </pre>
+            </section>
+            <section>
+                <h4>Tuple</h4>
+                <p>
+さまざまなシーンで使える<br/>
+ただし、格納出来るオブジェクトは22個まで（タプル23問題）
+                </p>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li>REPL</li>
+            <li>変数宣言</li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li>Tuple</li>
+            <li><div style="color: white;">無名関数</div></li>
+            <li>クラスとオブジェクト</li>
+            <li>Option型</li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>無名関数</h4>
+                <p>
+先ほど説明したコレクションの所で、下記の様な見慣れない書き方があった
+                </p>
+                <pre class="brush: scala;">
+nameList.filter(x => !x.isEmpty)
+                </pre>
+            </section>
+            <section>
+                <h4>無名関数</h4>
+                <p>
+これはJavaで言う無名クラスの様なもので、省略せずに書くとこうなる
+                </p>
+                <pre class="brush: scala;">
+nameList.filter {
+  (x: String) => {
+    !x.isEmpty
+  }
+}
+                </pre>
+            </section>
+            <section>
+                <h4>無名関数</h4>
+                <p>
+ここら辺が無名関数
+                </p>
+                <pre class="brush: scala;">
+nameList.filter {
+  (x: String) => {
+    !x.isEmpty
+  }
+}
+                </pre>
+            </section>
+            <section>
+                <h4>無名関数</h4>
+                <p>
+ワンライナーの場合は省略した方が読みやすくなったり、ならんかったり
+                </p>
+                <pre class="brush: scala;">
+nameList.filter(x => !x.isEmpty)
+                </pre>
+            </section>
+            <section>
+                <h4>無名関数</h4>
+                <p>
+ちなみに、コレクションで説明した例の記述をあえてJavaで書くと
+                </p>
+                <pre class="brush: scala;">
+val nameList: List[String] = List("シャア・アズナブル","","アムロ・レイ")
+val filteredList: List[String] = nameList.filter(x => !x.isEmpty)
+println(filteredList)
+                </pre>
+            </section>
+            <section>
+                <h4>無名関数</h4>
+                <p>うへえ</p>
+                <pre class="brush: java;">
+interface MyList {
+    public List<String> filter(List<String> nameList);
+}
+MyList filterList = new MyList() {
+    public List<String> filter(List<String> nameList) {
+        List<String> returnList = new ArrayList<String>();
+        for (String name : nameList) {
+            if (name != null && name != ””) {
+                returnList.add(name);
+            }
+        }
+        return returnList;
+    }
+};
+
+                </pre>
+            </section>
+            <section>
+                <h4>無名関数</h4>
+                <p>
+実行
+                </p>
+                <pre class="brush: java;">
+List<String> nameList = Arrays.asList("シャア・アズナブル","","アムロ・レイ");
+List<String> filteredList = filterList.filter(nameList);
+System.out.println(filteredList);
+                </pre>
+            </section>
+            <section>
+                <h4>無名関数</h4>
+                <p>
+まあ、Listの要素をフィルターするだけに普通こんなことはしないけど、無名関数の参考程度までに
+                </p>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li>REPL</li>
+            <li>変数宣言</li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li>Tuple</li>
+            <li>無名関数</li>
+            <li><div style="color: white;">クラスとオブジェクト</div></li>
+            <li>Option型</li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+クラスの定義<br/>
+まあおなじみでしょうか
+                </p>
+                <pre class="brush: java;">
+class MyClass {
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+クラスの定義
+ほとんどJavaと同様
+                </p>
+                <pre class="brush: scala;">
+class MyClass {
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+Javaのコンストラクタ定義
+                </p>
+                <pre class="brush: java;">
+class MyClass {
+    public MyClass() {
+        System.out.println("Hello World!");
+    }
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+Scalaのコンストラクタ定義<br/>
+コンストラクタはJavaで言うメンバに定義する
+                </p>
+                <pre class="brush: scala;">
+class MyClass {
+  // ここにコンストラクタの処理を定義
+  println("Hello World!")
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+Javaの引数ありのコンストラクタ定義
+                </p>
+                <pre class="brush: java;">
+class MyClass {
+    public MyClass(String name) {
+    }
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+Scalaの引数ありのコンストラクタ定義<br/>
+Scalaの場合、クラスの定義に引数を記述
+                </p>
+                <pre class="brush: scala;">
+class MyClass(name: String) {
+  println("Hello World! %s".format(name))
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+二つ以上のコンストラクタ（オーバーロード）
+                </p>
+                <pre class="brush: java;">
+class MyClass {
+    public MyClass(String name) {
+    }
+    public MyClass(String name, int age) {
+    }
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+Scalaでは２つめ以降のコンストラクタを「補助コンストラクタ」と言い、その前に定義されたコンストラクタを呼び出す必要がある
+                </p>
+                <pre class="brush: scala;">
+class MyClass(name: String) {
+  println("Hello World! %s".format(name))
+  // 補助コンストラクタ
+  def this(name: String, age: Int) = {
+    this(name)
+    println("Hello World! %s %d".format(name, age))
+  }
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+オブジェクトの定義<br/>
+Scalaにはstaticの概念は無いが、シングルトンオブジェクト（アプリ内に１つしかないオブジェクト）を定義する事が出来る
+                </p>
+                <pre class="brush: scala;">
+object MyObject {
+  val limit = 1000
+}
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+コンパニオンオブジェクトの定義<br/>
+同名のクラスとオブジェクトを同一ソースに定義すると、そのオブジェクトはコンパニオンオブジェクトと呼ばれるものになり、オブジェクトとクラス間でprivateメンバへのアクセスが可能となる<br/>
+主にクラスを生成する役目として利用する（ファクトリー）
+                </p>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+コンパニオンオブジェクトの定義
+                </p>
+                <pre class="brush: scala;">
+class MyName(name: String) {
+  println("Hello World! %s".format(name))
+}
+object MyName {
+  // applyの定義が必要
+  def apply(name: String) = new MyName(name)
+}
+MyName.apply("Name") // Hello World! TEST
+MyName("Name") // applyは少し特殊で、省略可能
+                </pre>
+            </section>
+            <section>
+                <h4>クラスとオブジェクト</h4>
+                <p>
+ケースクラスの定義<br/>
+いくつかの便利なメソッドやコンパニオンオブジェクトが自動的に生成される<br/>
+コンストラクタに対するパターンマッチが利用出来たり、値を保持するDTOとしての定義に利用
+                </p>
+                <pre class="brush: scala;">
+case class MyClass(name: String) {
+  println("Hello World! %s".format(name))
+}
+                </pre>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li>REPL</li>
+            <li>変数宣言</li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li>Tuple</li>
+            <li>無名関数</li>
+            <li>クラスとオブジェクト</li>
+            <li><div style="color: white;">Option型</div></li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>Option型</h4>
+                <p>
+
+                </p>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li>REPL</li>
+            <li>変数宣言</li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li>Tuple</li>
+            <li>無名関数</li>
+            <li>クラスとオブジェクト</li>
+            <li>Option型</li>
+            <li><div style="color: white;">引数について（＋部分適用とカリー化）</div></li>
+            <li>クロージャ</li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>引数について（＋部分適用とカリー化）</h4>
+                <p>
+
+                </p>
+            </section>
+        </section>
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h4><div style="color: white;">第1部：JavaとScala</div></h4>
+          <div style="color: gray;">
+          <ul>
+            <li>Scalaって？</li>
+            <li>REPL</li>
+            <li>変数宣言</li>
+            <li>制御構文／コレクションのライブラリ</li>
+            <li>Tuple</li>
+            <li>無名関数</li>
+            <li>クラスとオブジェクト</li>
+            <li>Option型</li>
+            <li>引数について（＋部分適用とカリー化）</li>
+            <li><div style="color: white;">クロージャ</div></li>
+          </ul>
+          </div>
+        </section>
+        <section data-transition="linear" data-background-transition="slide">
+            <section>
+                <h4>クロージャ</h4>
+                <p>
+
+                </p>
+            </section>
+        </section>
+
+
+
+
+        <section data-transition="linear" data-background="#000000" data-background-transition="slide">
+          <h1><div style="color: white;">Scala</div></h1>
+          <p><div style="color: white;">遠藤一臣</div></p>
+        </section>
+
+
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+
+  </body>
+</html>
